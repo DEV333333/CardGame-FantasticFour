@@ -1,0 +1,24 @@
+1. The user is asked if they want to play the game
+1.1 If the user says yes, the game starts
+1.2 If the user says no, the game ands
+2. The user is asked how many players there are
+2.1 The user enters the number of players
+3. The user is asked to enter the name and ID af each player
+3.2 If the user enters invalid name or ID, the user is asked to enter the name and 1D again
+3.1 The user enters the name and ID of each player
+4. The user is asked how many rounds should be played
+4.1 The user enters the number of rounds
+5. The game starts
+5.1 The user is asked to pick a suit for their card
+5.1.1 The user enters the suit
+5.2 The user is asked to enter a value for their card
+5.2.1 The user enters the value
+5.3 The user's card is compared to the cards in the hand
+15.3.1 If the user's card is in the hand, the user gets a point
+5.3.2 If the user's card is not in the hand, the user does not get a point
+5.4 The user's score is displayed
+6. Then the game asks the next player to pick a suit and enter a value for their card
+7. The game continues until all players have played
+8. The game will display the winner
+8.1. If there is a tie, the game will display that there is a tie
+9. The game ends
