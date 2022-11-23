@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package softwareproject;
-
 /**
  *
- * @author hridayjuneja
+ * @author Hriday Juneja
+ * @author Lovepreet Kaur
+ * @author Nikhil Chaudhary
+ * @author Harsh Patel
  */
-
 public class Card {
 
     public static final String[] SUITS = { "Hearts", "Diamonds", "Clubs", "Spades" };
