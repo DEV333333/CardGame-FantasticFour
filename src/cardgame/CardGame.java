@@ -4,11 +4,6 @@
  */
 package softwareproject;
 
-/**
- *
- * @author hridayjuneja
- */
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,11 +26,25 @@ public class CardGame {
                                 int numPlayers = input.nextInt();
                                 Player[] players = new Player[numPlayers];
                                 for (int i = 0; i < numPlayers; i++) {
-                                        System.out.println("What is the name of player " + (i + 1) + "?");
-                                        String name = input.next();
-                                        players[i] = new Player(name);
-
-                                        players[i] = new Player(name);
+                                        boolean validName = false;
+                                        while (!validName) {
+                                                System.out.println("Enter the name of player " + (i + 1));
+                                                String name = input.next();
+                                                if (name.matches("[a-zA-Z]+")) {
+                                                        validName = true;
+                                                        for (int j = 0; j < i; j++) {
+                                                                if (players[j].getName().equals(name)) {
+                                                                        System.out.println("That name is already taken. Please enter a new name.");
+                                                                        validName = false;
+                                                                }
+                                                        }
+                                                        if (validName) {
+                                                                players[i] = new Player(name);
+                                                        }
+                                                } else {
+                                                        System.out.println("Please enter a valid name.");
+                                                }
+                                        }
                                         System.out.println("Hello " + players[i].getName() + "!");
                                         System.out.println("You have " + players[i].getScore() + " points right now");
                                 }
