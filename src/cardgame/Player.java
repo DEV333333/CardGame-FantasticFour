@@ -1,4 +1,16 @@
-package cardgame;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package softwareproject;
+
+/**
+ *
+ * @author Hriday Juneja
+ * @author Lovepreet Kaur
+ * @author Nikhil Chaudhary
+ * @author Harsh Patel
+ */
 
 public class Player {
     private String name;
@@ -9,6 +21,9 @@ public class Player {
         this.name = name;
         this.score = 0;
         this.isWinner = false;
+    }
+
+    public Player(String name2, int id) {
     }
 
     public String getName() {
