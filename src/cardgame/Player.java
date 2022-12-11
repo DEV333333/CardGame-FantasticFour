@@ -23,9 +23,6 @@ public class Player {
         this.isWinner = false;
     }
 
-    public Player(String name2, int id) {
-    }
-
     public String getName() {
         return name;
     }
