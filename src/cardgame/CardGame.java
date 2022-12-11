@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 /**
  * This class models a simple card guessing game
+ * This class models the main class of the game
  * 
  * @author Hriday Juneja
  * @author Lovepreet Kaur
@@ -16,6 +17,7 @@ import java.util.Scanner;
  * @author Harsh Patel
  */
 public class CardGame {
+        @SuppressWarnings("UnusedAssignment")
         public static void main(String[] args) {
                 try (Scanner input = new Scanner(System.in)) {
                         System.out.println("Welcome to the card game!");
@@ -26,25 +28,9 @@ public class CardGame {
                                 int numPlayers = input.nextInt();
                                 Player[] players = new Player[numPlayers];
                                 for (int i = 0; i < numPlayers; i++) {
-                                        boolean validName = false;
-                                        while (!validName) {
-                                                System.out.println("Enter the name of player " + (i + 1));
-                                                String name = input.next();
-                                                if (name.matches("[a-zA-Z]+")) {
-                                                        validName = true;
-                                                        for (int j = 0; j < i; j++) {
-                                                                if (players[j].getName().equals(name)) {
-                                                                        System.out.println("That name is already taken. Please enter a new name.");
-                                                                        validName = false;
-                                                                }
-                                                        }
-                                                        if (validName) {
-                                                                players[i] = new Player(name);
-                                                        }
-                                                } else {
-                                                        System.out.println("Please enter a valid name.");
-                                                }
-                                        }
+                                        System.out.println("What is the name of player " + (i + 1) + "?");
+                                        String name = input.next();
+                                        players[i] = new Player(name);
                                         System.out.println("Hello " + players[i].getName() + "!");
                                         System.out.println("You have " + players[i].getScore() + " points right now");
                                 }
@@ -54,25 +40,26 @@ public class CardGame {
                                 Random random = new Random();
                                 for (int i = 0; i < hand.length; i++) {
                                         int value = random.nextInt(13) + 1;
-                                        String suit = Card.SUITS[random.nextInt(4)];
+                                        String suit = Card.SUITS[random.nextInt(4)];               
                                         Card card = new Card(value, suit);
                                         hand[i] = card;
                                 }
                                 for (int i = 0; i < numRounds; i++) {
                                         System.out.println("Round " + (i + 1) + "!");
                                         for (int k = 0; k < numPlayers; k++) {
-                                                System.out.println("Player " + players[k].getName() + ": ");
                                                 System.out.println("Here are the cards in the hand");
                                                 for (Card card : hand) {
                                                         System.out.printf("%d of %s\n", card.getValue(),
                                                                         card.getSuit());
                                                 }
-                                                System.out.println("Pick a suit for your card");
+                                                System.out.println("SUITS: ");
                                                 for (int j = 0; j < Card.SUITS.length; j++) {
                                                         System.out.println((j + 1) + ": " + Card.SUITS[j]);
                                                 }
+                                                System.out.print("Player " + players[k].getName()
+                                                                + ", Pick a Suit for your Card: ");
                                                 int suit = input.nextInt();
-                                                System.out.println("Enter a value (1 to 13)");
+                                                System.out.print("Enter a value (1 to 13) for your card: ");
                                                 int value = input.nextInt();
                                                 Card userGuess = new Card(value, Card.SUITS[suit - 1]);
                                                 boolean match = false;
@@ -120,13 +107,15 @@ public class CardGame {
                                                 System.out.print("There was a tie between ");
                                                 for (Player player : players) {
                                                         if (player.getScore() == maxScore) {
-                                                                System.out.print(player.getName() + " ");
+                                                                System.out.print(player.getName() + "");
                                                         }
+
                                                 }
                                                 System.out.println();
                                                 System.out.print("Thank you for playing!");
+                                                System.out.print("Would you like to play again? (y/n)");
+                                                answer = input.nextLine();
                                         }
-
                                 }
                         } else if (answer.equalsIgnoreCase("n")) {
                                 System.out.println("Goodbye!");
